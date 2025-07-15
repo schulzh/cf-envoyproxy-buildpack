@@ -32,9 +32,6 @@ VCAP_APPLICATION = JSON.parse(ENV["VCAP_APPLICATION"])
 template = ERB.new(File.read(File.join(BUILD_DIR, "envoy.yaml.erb")), trim_mode: "-")
 config = template.result(binding)
 File.write(File.join(DEPS_DIR, DEPS_IDX, "envoy.yaml"), config)
-File.open("/etc/hosts", "a") do |file|
-  file.puts "127.0.0.1 testapp"
-end
 
 LAUNCH = %Q(---
 processes:
