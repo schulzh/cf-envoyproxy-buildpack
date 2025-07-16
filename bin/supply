@@ -36,7 +36,7 @@ File.write(File.join(DEPS_DIR, DEPS_IDX, "envoy.yaml"), config)
 LAUNCH = %Q(---
 processes:
 - type: "sidecar-envoy"
-  command: "/etc/cf-assets/envoy/envoy -c /home/vcap/deps/#{DEPS_IDX}/envoy.yaml --log-level debug --base-id 1"
+  command: "/etc/cf-assets/envoy/envoy -c /home/vcap/deps/#{DEPS_IDX}/envoy.yaml --log-level info --base-id 1"
   platforms:
     cloudfoundry:
       sidecar_for: ["web"]
